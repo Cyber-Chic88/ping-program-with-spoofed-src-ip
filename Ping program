@@ -1,0 +1,21 @@
+from scapy.all import *
+
+def send_ping(target_ip_address: str, number_of_packets_to_send: int = 4):
+    ip = IP(dst=target_ip_address)
+    src = IP(src="54.85.114.82")
+    icmp = ICMP()
+    p = ip / src / icmp 
+    send(p, count=number_of_packets_to_send, verbose=0)
+    print('send_ping(): Sent ' + str(number_of_packets_to_send) + ' pings ' +' to ' + target_ip_address)
+    print("\n")
+
+send_ping("www.google.com", number_of_packets_to_send=4)
+send_ping("www.amazon.com", number_of_packets_to_send=4)
+send_ping("www.github.com", number_of_packets_to_send=4)
+send_ping("www.instagram.com", number_of_packets_to_send=4)
+send_ping("www.uncw.edu", number_of_packets_to_send=4)
+send_ping("www.yahoo.com", number_of_packets_to_send=4)
+send_ping("www.snapchat.com", number_of_packets_to_send=4)
+send_ping("www.facebook.com", number_of_packets_to_send=4)
+send_ping("www.hotmail.com", number_of_packets_to_send=4)
+send_ping("www.zoom.com", number_of_packets_to_send=4)
